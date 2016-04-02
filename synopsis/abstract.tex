@@ -1,4 +1,43 @@
 \begin{abstract}
-plenty of waffle, plenty of waffle, plenty of waffle, plenty of waffle,
-plenty of waffle, plenty of waffle, plenty of waffle, plenty of waffle.
+
+  Synchronous systems find a widespread use in the design and development of embedded software.
+  In many instances, the system being developed is safety-critical and verification of such
+  systems, before their deployment, becomes imperative.
+
+  In theory, it is possible to verify a synchronous system using model-checkers that are not
+  tuned for synchronization. The synchrony has to be encoded as part of the input specification
+  in such a case. This can be done by either adding a scheduler explicitly, so that the
+  processes are given turns to execute, or implicitly, wherein each process \emph{busy-waits}
+  to synchronize with others. While this approach leverages the power of existing model-checking
+  tools, it is prohibitively inefficient because it fails to exploit the parallelism and control
+  structure inherent to the input system.
+
+  We propose an extension of lazy abstraction based model-checking technique, to automatically
+  verify reactive synchronous systems, with the purpose of analyzing synchronous concurrency
+  explicitly rather than encoding it. This circumvents the exponential blow-up of state space
+  caused by simulating synchronous behaviour using interleavings. \textsc{Sympara}, a tool
+  that implements the proposed extension, manifests this state space reduction as an order of
+  magnitude decrease in the time taken for verification over alternative approaches.
+
+  A notable advantage of this approach is that it effectively addresses the synchronous aspect
+  of systems without interfering with the core of the technique. Consequently, one may lift the
+  synchrony restriction and look at multi-threaded systems in general, while being assured that
+  an improvement made in the general case would have a cascading effect on synchronous systems.
+  Pursuing this further, we explore ways to generate program invariants quicker, and more often.
+  The state-of-the-art invariant generation techniques, in practice, often struggle to
+  find concise loop invariants, and, instead, degrade into unrolling loops, which is ineffective
+  for non-trivial programs. We evaluate experimentally whether loop accelerators enable existing
+  program analysis algorithms to discover loop invariants more reliably and more efficiently.
+  We confirm this in affirmative, empirically, through a comprehensive study over a number of
+  benchmarks from the literature.
+
+  As acceleration harnesses a low-level contol structure, i.e. loops, it becomes natural to ask
+  if the higher-level anatomy of multi-threaded systems offers anything for exploitation, e.g.
+  its modularity. In fact, in a more general setting, we analyze sequential programs treating
+  procedures as modules, and consider the problem of finding violations to safety properties in a
+  compositional way. We formalise a space of property-guided compositional refutation techniques,
+  discuss their properties with respect to efficiency and completeness, and evaluate them
+  experimentally. Towards ``completion'', we sketch an extension of this using {\it k}-induction
+  for proving safety.
+  
 \end{abstract}

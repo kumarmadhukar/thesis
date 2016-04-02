@@ -176,7 +176,7 @@
 {\begin{alwayssingle} \thispagestyle{empty}
 \begin{center}
 \vspace*{1.5cm}
-{\Large \bfseries Statement of Originality}
+{\Large \bfseries Statement of Attribution}
 \end{center}
 \vspace{0.5cm}
 \begin{quote}}

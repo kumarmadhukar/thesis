@@ -5,6 +5,16 @@
 %load any additional packages
 \usepackage{amssymb}
 
+
+\usepackage{afterpage}
+
+
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
+
 %input macros (i.e. write your own macros file called mymacros.tex 
 %and uncomment the next line)
 %\include{mymacros}
@@ -35,13 +45,17 @@
 \maketitle                  % create a title page from the preamble info
 %\include{dedication}        % include a dedication.tex file
 %\include{acknowlegements}   % include an acknowledgements.tex file
+\pagenumbering{gobble}
 \include{abstract}          % include the abstract
 \include{originality}         % include the originality declaration
+\pagenumbering{arabic}
 
 \begin{romanpages}          % start roman page numbering
 %\tableofcontents            % generate and include a table of contents
 %\listoffigures              % generate and include a list of figures
 \end{romanpages}            % end roman page numbering
+
+\afterpage{\blankpage}
 
 %now include the files of latex for each of the chapters etc
 \include{chapter}
